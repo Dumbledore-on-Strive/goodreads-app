@@ -7,4 +7,4 @@ forums](https://discuss.streamlit.io).
 
 
 ## Check it out live 
-* [Click here](https://share.streamlit.io/dumbledore-on-strive/goodreads)
+* [Click here](https://share.streamlit.io/dumbledore-on-strive/goodreads-app)
