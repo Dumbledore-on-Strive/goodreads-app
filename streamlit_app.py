@@ -105,7 +105,7 @@ with dataset:
     st.text(maxValue)
     # st.text('maximum rating', maxValue)
 
-    # ------------------------
+    # -----------------------
 
     st.header('Mean Normalization')
 
