@@ -1,3 +1,12 @@
 altair
+numpy
 pandas
+seaborn
+matplotlib.pyplot
+BeautifulSoup
+namedtuple
+Image
 streamlit
+
+
+
