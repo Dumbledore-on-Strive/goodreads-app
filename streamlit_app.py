@@ -3,50 +3,99 @@ import altair as alt
 import math
 import numpy as np
 import pandas as pd
+import seaborn as sns
 import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup
 import streamlit as st
 from PIL import Image
 
-# """
-# # Dumbledore on Strive!
+"""
+# Dumbledore on Strive!
 
-# Edit `/streamlit_app.py` to customize this app to your heart's desire :heart:
+Run `/streamlit_app.py` and you'll see the magic :sparkles:
 
-# If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-# forums](https://discuss.streamlit.io).
+If you have any questions, checkout our [documentation](https://dumbledore-on-strive.github.io/) 
 
-# In the meantime, below is an example of what you can do with just a few lines of code:
-# """
+In the meantime, enjoy the journey of:
+"""
 
 header = st.beta_container()
 dataset = st.beta_container()
 features = st.beta_container()
 comparison = st.beta_container()
 
-with header:
-    st.title('Dumbledore welcomes you to our Project')
-    st.text('Webscraping, Dataframe, Plot, ')
+st.markdown(
+    """
 
-    st.write("Using magic with Machine Learning to Find the the Data we need")
+    """,
+    unsafe_allow_html=True
+)
+
+# @st.cache
+def get_data(file):
+    goodreads_data = pd.read_csv(file)
+
+    return goodreads_data
+
+with header:
+    # st.title('Dumbledore welcomes you to our Project')
+    st.text('Webscraping, Dataframe, Plot')
+
+    goodreads_data = get_data('data/df-copy-1.csv')
+
+    st.write("Using magic with Machine Learning to get the the Data we need")
     image = Image.open('dumbledore-on-strive.jpeg')
-    st.image(image, caption='It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.')
+    st.image(image, caption="'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.'")
 
 
 with dataset:
     st.header('Goodreads - Books That Should Be Made Into Movies')
     st.text('Data Visualization')
-    # st.text('Spreadsheet Example')
-    df_100_rows = pd.read_csv('data/100_rows.csv')
-    # st.write(df_100_rows.head())
+    st.text('Spreadsheet Example')
+    goodreads_data = get_data('data/df-copy-1.csv')
+    # st.write(taxi_data.head())
 
-    st.text('Average Ratings')
-    avg_ratings = pd.DataFrame(df_100_rows['Average_Ratings'].value_counts()).head(50)
+    #------------------------
+
+    st.header('Matplotlib')
+    arr = np.random.normal(1, 1, size=100)
+    fig, ax = plt.subplots()
+    ax.hist(arr, bins=20)
+    st.pyplot(fig)
+
+    # ------------------------
+
+    st.header('Min-Max Normalization')
+    cleaned = goodreads_data.dropna()
+    # Step 1: find min(avg_rating)
+    minValue = cleaned[['avg_rating']].min()
+    st.text(minValue)
+    # st.text('minimum rating: ', minValue)
+
+    # Step2: find max(avg_rating)
+    maxValue = cleaned[['avg_rating']].max()
+    st.text(maxValue)
+    # st.text('maximum rating', maxValue)
+
+    # ------------------------
+
+    # average (avg_rating)
+    df_mean = cleaned[["avg_rating"]].mean()
+    st.text(df_mean)
+
+    # ------------------------
+
+    st.header('Average Ratings')
+    avg_ratings = pd.DataFrame(goodreads_data['avg_rating'].value_counts()).head(50)
     st.bar_chart(avg_ratings)
 
-    st.text('Average Ratings')
-    avg_ratings = pd.DataFrame(df_100_rows['Average_Ratings'].value_counts()).head(50)
-    st.bar_chart(avg_ratings)
+    st.header('Original Publish Year')
+    original_publish_year = pd.DataFrame(goodreads_data['original_publish_year'].value_counts()).head(50)
+    st.line_chart(original_publish_year)
+
+    st.header('Number of Pages')
+    num_pages = pd.DataFrame(goodreads_data['num_pages'].value_counts()).head(50)
+    st.line_chart(num_pages)
 
 
 with features:
@@ -64,11 +113,10 @@ with features:
     st.text('- Make a scatterplot to represent  minmax_norm_ratings in function of the number of awards won by the book')
 
 
+with comparison:
+    st.header('Comparison')
+    st.text('The probability of a book with mare than 4 average rating on Goodreads hit average rating higher than 7 on IMDB')
 
-# with comparison:
-#     st.header('Comparison')
-#     st.text('The probability of a book with mare than 4 average rating on Goodreads hit average rating higher than 7 on IMDB')
-#
 
 # with st.echo(code_location='below'):
 #     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
