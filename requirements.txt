@@ -3,7 +3,7 @@ numpy
 pandas
 seaborn
 matplotlib==3.4.1
-BeautifulSoup
+BeautifulSoup4==4.9.3
 namedtuple
 Image
 streamlit
