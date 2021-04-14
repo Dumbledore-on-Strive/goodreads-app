@@ -5,6 +5,8 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib import rcParams
+from sklearn.preprocessing import MinMaxScaler
 from bs4 import BeautifulSoup
 import streamlit as st
 from PIL import Image
@@ -26,7 +28,12 @@ comparison = st.beta_container()
 
 st.markdown(
     """
+    <style>
+     .main {
+     # background-color: #0d0e12;
 
+     }
+    </style>
     """,
     unsafe_allow_html=True
 )
@@ -57,10 +64,24 @@ with dataset:
 
     #------------------------
 
+    st.header('2D scatterplot with pages and number of ratings')
+    cleaned.plot.scatter('num_pages', 'num_rating', color='k', edgecolor='r')
+    plt.xlabel('num_pages')
+    plt.ylabel('num_rating')
+    plt.title('2D Scatter plot')
+    # plt.legend()
+    plt.grid()
+    plt.show()
+
+
+    # ------------------------
+
     st.header('Matplotlib')
     arr = np.random.normal(1, 1, size=100)
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots()#0d0e12
     ax.hist(arr, bins=20)
+    # fig.patch.set_facecolor('#0d0e12')
+    # ax.set_facecolor('#0d0e12')
     st.pyplot(fig)
 
     # ------------------------
@@ -76,6 +97,18 @@ with dataset:
     maxValue = cleaned[['avg_rating']].max()
     st.text(maxValue)
     # st.text('maximum rating', maxValue)
+
+    # ------------------------
+
+    st.header('Mean Normalization')
+
+    def mean_norm(data_column_name):
+        x = data_column_name
+        mean_norm_ratings = 1 + ((x - x.mean()) / (x.max() - x.min())) * 9
+        return mean_norm_ratings
+    a = mean_norm(cleaned["avg_rating"])
+    st.bar_chart(a)
+    # st.bar_chart(a).to_frame()
 
     # ------------------------
 
