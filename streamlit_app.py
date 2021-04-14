@@ -57,7 +57,7 @@ with header:
 
     st.header("Using magic with Machine Learning to get the the Data we need")
     st.text(' ')
-    image = Image.open('dumbledore-on-strive.jpeg')
+    image = Image.open('imgs/dumbledore-on-strive.jpeg')
     st.image(image, caption="'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.'")
 
 
@@ -68,29 +68,29 @@ with dataset:
     goodreads_data = get_data('data/df-copy-1.csv')
     # st.write(taxi_data.head())
 
-    #------------------------
-
-    st.header('2D scatterplot with pages and number of ratings')
+    # #------------------------
+    #
+    # st.header('2D scatterplot with pages and number of ratings')
     cleaned = goodreads_data.dropna()
-    cleaned.plot.scatter('num_pages', 'num_rating', color='k', edgecolor='r')
-    plt.xlabel('num_pages')
-    plt.ylabel('num_rating')
-    plt.title('2D Scatter plot')
-    # plt.legend()
-    # plt.grid()
-    scatter = plt.grid()
-    st.pyplot(scatter)
-
-
-    # ------------------------
-
-    st.header('Matplotlib')
-    arr = np.random.normal(1, 1, size=100)
-    fig, ax = plt.subplots()#0d0e12
-    ax.hist(arr, bins=20)
-    # fig.patch.set_facecolor('#0d0e12')
-    # ax.set_facecolor('#0d0e12')
-    st.pyplot(fig)
+    # cleaned.plot.scatter('num_pages', 'num_rating', color='k', edgecolor='r')
+    # plt.xlabel('num_pages')
+    # plt.ylabel('num_rating')
+    # plt.title('2D Scatter plot')
+    # # plt.legend()
+    # # plt.grid()
+    # scatter = plt.grid()
+    # st.pyplot(scatter)
+    #
+    #
+    # # ------------------------
+    #
+    # st.header('Matplotlib')
+    # arr = np.random.normal(1, 1, size=100)
+    # fig, ax = plt.subplots()#0d0e12
+    # ax.hist(arr, bins=20)
+    # # fig.patch.set_facecolor('#0d0e12')
+    # # ax.set_facecolor('#0d0e12')
+    # st.pyplot(fig)
 
     # ------------------------
 
@@ -136,6 +136,18 @@ with dataset:
     st.header('Number of Pages')
     num_pages = pd.DataFrame(goodreads_data['num_pages'].value_counts()).head(50)
     st.line_chart(num_pages)
+
+
+#--------------------------
+
+    image = Image.open('imgs/dist.png')
+    st.image(image)
+    image = Image.open('imgs/norm_rating.png')
+    st.image(image)
+    image = Image.open('imgs/minmax.png')
+    st.image(image)
+    image = Image.open('imgs/minmax_norm.png')
+    st.image(image)
 
 
 with features:
