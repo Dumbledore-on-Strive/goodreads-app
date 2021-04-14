@@ -3,7 +3,6 @@ numpy
 pandas
 seaborn
 matplotlib==3.4.1
-namedtuple
 Image
 streamlit
 
