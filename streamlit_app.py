@@ -46,11 +46,17 @@ def get_data(file):
 
 with header:
     # st.title('Dumbledore welcomes you to our Project')
-    st.text('Webscraping, Dataframe, Plot')
+    st.text(' ')
+    st.markdown('* **Webscraping:** get the information (data) from the web')
+    st.markdown('* **Dataframe:** add the data a spreadsheet file')
+    st.markdown('* **Plot:** create plot and graphs for better visualization')
+    st.text(' ')
+
 
     goodreads_data = get_data('data/df-copy-1.csv')
 
-    st.write("Using magic with Machine Learning to get the the Data we need")
+    st.header("Using magic with Machine Learning to get the the Data we need")
+    st.text(' ')
     image = Image.open('dumbledore-on-strive.jpeg')
     st.image(image, caption="'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.'")
 
@@ -65,13 +71,15 @@ with dataset:
     #------------------------
 
     st.header('2D scatterplot with pages and number of ratings')
+    cleaned = goodreads_data.dropna()
     cleaned.plot.scatter('num_pages', 'num_rating', color='k', edgecolor='r')
     plt.xlabel('num_pages')
     plt.ylabel('num_rating')
     plt.title('2D Scatter plot')
     # plt.legend()
-    plt.grid()
-    plt.show()
+    # plt.grid()
+    scatter = plt.grid()
+    st.pyplot(scatter)
 
 
     # ------------------------
@@ -87,7 +95,6 @@ with dataset:
     # ------------------------
 
     st.header('Min-Max Normalization')
-    cleaned = goodreads_data.dropna()
     # Step 1: find min(avg_rating)
     minValue = cleaned[['avg_rating']].min()
     st.text(minValue)
@@ -146,9 +153,9 @@ with features:
     st.text('- Make a scatterplot to represent  minmax_norm_ratings in function of the number of awards won by the book')
 
 
-with comparison:
-    st.header('Comparison')
-    st.text('The probability of a book with mare than 4 average rating on Goodreads hit average rating higher than 7 on IMDB')
+# with comparison:
+#     st.header('Comparison')
+#     st.text('The probability of a book with mare than 4 average rating on Goodreads hit average rating higher than 7 on IMDB')
 
 
 # with st.echo(code_location='below'):
