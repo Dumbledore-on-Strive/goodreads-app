@@ -1,7 +1,6 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
-from sklearn import datasets
 from PIL import Image
 import seaborn as sns
 
