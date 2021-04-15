@@ -31,10 +31,8 @@ def get_data(file):
 
 with header:
     st.title('Dumbledore on Strive!')  # site title h1
-    st.text("Run `/streamlit_app.py` and you'll see the magic :sparkles:")
-    st.text(
-        "If you have any questions, checkout our [documentation](https://dumbledore-on-strive.github.io/) ")
-    st.text("In the meantime, enjoy the journey of:")
+    st.text(" ")
+    st.markdown("Enjoy the journey and you'll see the magic :sparkles:")
     st.text(' ')
     st.markdown('* **Webscraping:** get the information (data) from the web')
     st.markdown('* **Dataframe:** add the data a spreadsheet file')
@@ -45,7 +43,7 @@ with header:
     cleaned = goodreads_data.dropna()
 
     # header
-    st.header("Using magic with Machine Learning to get the the Data we need")
+    st.header("Using magic and Machine Learning to get the Data we need")
     st.text(' ')
     image = Image.open('imgs/dumbledore-on-strive.jpeg')
     st.image(image, caption="'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.'")
@@ -62,7 +60,24 @@ with dataset:
 
     # load dataset
     data = load_data()
-    st.write(data)
+    numeric_columns = data.select_dtypes(
+        ['float64', 'float32', 'int64', 'int32'])
+    print(numeric_columns)
+
+    # sidebar
+    # checkbox widget
+    checkbox = st.sidebar.checkbox('Show data')
+    print(checkbox)
+
+    if checkbox:
+        st.dataframe(data=data)
+
+    # create scatter plots
+    st.sidebar.subheader('Scatter plot setup')
+
+    # add select widget
+    select_columns = st.sidebar.selectbox(
+        label='X axis', options=numeric_columns)
 
     # -----------------------
 
@@ -93,3 +108,7 @@ with features:
     st.text('- Visualize the awards distribution in a boxplot and aggregated bars')
     st.text('- Group the books by original_publish_year and get the mean of the minmax_norm_ratings of the groups')
     st.text('- Make a scatterplot to represent  minmax_norm_ratings in function of the number of awards won by the book')
+
+
+st.markdown(
+    "If you have any questions, checkout our [documentation](https://dumbledore-on-strive.github.io/) ")
