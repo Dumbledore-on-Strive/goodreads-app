@@ -3,15 +3,6 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-"""
-# Dumbledore on Strive!
-
-Run `/streamlit_app.py` and you'll see the magic :sparkles:
-
-If you have any questions, checkout our [documentation](https://dumbledore-on-strive.github.io/) 
-
-In the meantime, enjoy the journey of:
-"""
 
 header = st.beta_container()
 dataset = st.beta_container()
@@ -39,7 +30,11 @@ def get_data(file):
 
 
 with header:
-    # st.title('Dumbledore welcomes you to our Project')
+    st.title('Dumbledore on Strive!')
+    st.text("Run `/streamlit_app.py` and you'll see the magic :sparkles:")
+    st.text(
+        "If you have any questions, checkout our [documentation](https://dumbledore-on-strive.github.io/) ")
+    st.text("In the meantime, enjoy the journey of:")
     st.text(' ')
     st.markdown('* **Webscraping:** get the information (data) from the web')
     st.markdown('* **Dataframe:** add the data a spreadsheet file')
@@ -72,12 +67,6 @@ with dataset:
     a = mean_norm(cleaned["avg_rating"])
     st.bar_chart(a)
     # st.bar_chart(a).to_frame()
-
-    # ------------------------
-
-    # average (avg_rating)
-    df_mean = cleaned[["avg_rating"]].mean()
-    st.text(df_mean)
 
     # ------------------------
 
