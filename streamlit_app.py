@@ -30,7 +30,7 @@ def get_data(file):
 
 
 with header:
-    st.title('Dumbledore on Strive!')
+    st.title('Dumbledore on Strive!')  # site title h1
     st.text("Run `/streamlit_app.py` and you'll see the magic :sparkles:")
     st.text(
         "If you have any questions, checkout our [documentation](https://dumbledore-on-strive.github.io/) ")
@@ -41,8 +41,10 @@ with header:
     st.markdown('* **Plot:** create plot and graphs for better visualization')
     st.text(' ')
 
-    goodreads_data = get_data('data/df-copy-1.csv')
+    goodreads_data = get_data('data/preprocess_data.csv')
+    cleaned = goodreads_data.dropna()
 
+    # header
     st.header("Using magic with Machine Learning to get the the Data we need")
     st.text(' ')
     image = Image.open('imgs/dumbledore-on-strive.jpeg')
@@ -52,13 +54,20 @@ with header:
 with dataset:
     st.header('Goodreads - Books That Should Be Made Into Movies')
     st.text('Data Visualization')
-    st.text('Spreadsheet Example')
-    goodreads_data = get_data('data/df-copy-1.csv')
-    cleaned = goodreads_data.dropna()
+
+    def load_data():
+        df = pd.read_csv('data/preprocess_data.csv')
+
+        return df
+
+    # load dataset
+    data = load_data()
+    st.write(data)
 
     # -----------------------
 
     st.header('Mean Normalization')
+    st.text('Plot')
 
     def mean_norm(data_column_name):
         x = data_column_name
