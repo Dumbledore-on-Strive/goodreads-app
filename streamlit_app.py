@@ -1,12 +1,18 @@
 import numpy as np
 import pandas as pd
 import streamlit as st
+from sklearn import datasets
 from PIL import Image
+import seaborn as sns
 
 
 header = st.beta_container()
 dataset = st.beta_container()
-features = st.beta_container()
+comparison = st.beta_container()
+
+# set style for seaborn
+sns.set_style('darkgrid')
+# set_style("whitegrid")
 
 st.markdown(
     """
@@ -48,6 +54,11 @@ with header:
     image = Image.open('imgs/dumbledore-on-strive.jpeg')
     st.image(image, caption="'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.'")
 
+    # button
+    if st.button("Let's do this"):
+        st.write('Yeah!!!')
+    else:
+        st.write(' ')
 
 with dataset:
     st.header('Goodreads - Books That Should Be Made Into Movies')
@@ -58,26 +69,36 @@ with dataset:
 
         return df
 
-    # load dataset
+    # # load dataset
     data = load_data()
-    numeric_columns = data.select_dtypes(
-        ['float64', 'float32', 'int64', 'int32'])
-    print(numeric_columns)
+    # numeric_columns = data.select_dtypes(
+    #     ['float64', 'float32', 'int32'])
+    # print(numeric_columns)
 
-    # sidebar
-    # checkbox widget
-    checkbox = st.sidebar.checkbox('Show data')
-    print(checkbox)
+    # # sidebar
+    # # checkbox widget
+    # checkbox = st.sidebar.checkbox('Show data')
+    # # checkbox = st.checkbox('Show data')
+    # print(checkbox)
 
-    if checkbox:
-        st.dataframe(data=data)
+    # if checkbox:
+    #     st.dataframe(data=data)
 
-    # create scatter plots
-    st.sidebar.subheader('Scatter plot setup')
+    # # create scatter plots
+    # st.sidebar.subheader('Plot setup')
+    # # add select widget
+    # select_columns1 = st.sidebar.selectbox(
+    #     label='X axis', options=numeric_columns)
+    # select_columns2 = st.sidebar.selectbox(
+    #     label='Y axis', options=numeric_columns)
+    # sns.relplot(x=select_columns1, y=select_columns2, data=data)
+    # st.pyplot()
 
-    # add select widget
-    select_columns = st.sidebar.selectbox(
-        label='X axis', options=numeric_columns)
+    # -----------------------
+
+    # create scatter plot on seaborn
+    # sns.relplot(x=select_columns1, y=select_columns2, data=data)
+    # st.pyplot()
 
     # -----------------------
 
@@ -94,21 +115,61 @@ with dataset:
 
     # ------------------------
 
-
-with features:
-    st.header('Features')
-    st.text(
+    # st.header('Features')
+    st.markdown(
         '- Create a 2D scatterplot with pages on the x-axis and num_ratings on the y-axis.')
-    st.text('- compute numerically the correlation')
-    st.text('- Visualise the avg_rating distribution')
-    st.text('- Visualise the minmax_norm_rating distribution.')
-    st.text('- Visualise the mean_norm_rating distribution.')
-    st.text('- Create one graph that represents in the same figure both minmax_norm_rating and mean_norm_ratingdistributions.')
-    st.text('- Scipy-Stats to represent the best fit in terms of a distribution')
-    st.text('- Visualize the awards distribution in a boxplot and aggregated bars')
-    st.text('- Group the books by original_publish_year and get the mean of the minmax_norm_ratings of the groups')
-    st.text('- Make a scatterplot to represent  minmax_norm_ratings in function of the number of awards won by the book')
+    st.text(" ")
 
+    # def scatter_2D_plot(df):
+    #     size_b = df['award']**2*12
+    #     colors = np.random.rand(df.shape[0])
+    #     sns.scatterplot(df['num_pages'], df['num_rating'],
+    #                     s=size_b, c=colors, alpha=0.5, legend=True)
+    #     st.pyplot()
+    # st.write(scatter_2D_plot(df))
+    # st.scatter_plot(df)
+
+    st.markdown('- compute numerically the correlation')
+    st.text(" ")
+
+    # def correlation_coff(df):
+    #     x = df['num_pages']
+    #     y = df['num_rating']
+    #     print(
+    #         f"Pearson correlation coefficient :{st.pearsonr(x, y)[0] }\nSpearman correlation coefficient :{ st.spearmanr(x, y)[0] }\nKendall’s  correlation coefficient :{st.kendalltau(x, y)[0] }")
+    # st.write(correlation_coff(df))
+
+    st.markdown('- Visualise the avg_rating distribution')
+    st.text(" ")
+
+    st.markdown('- Visualise the minmax_norm_rating distribution.')
+    st.text(" ")
+
+    st.markdown('- Visualise the mean_norm_rating distribution.')
+    st.text(" ")
+
+    st.markdown(
+        '- Create one graph that represents in the same figure both minmax_norm_rating and mean_norm_ratingdistributions.')
+    st.text(" ")
+
+    st.markdown(
+        '- Scipy-Stats to represent the best fit in terms of a distribution')
+    st.text(" ")
+
+    st.markdown(
+        '- Visualize the awards distribution in a boxplot and aggregated bars')
+    st.text(" ")
+
+    st.markdown(
+        '- Group the books by original_publish_year and get the mean of the minmax_norm_ratings of the groups')
+    st.text(" ")
+
+    st.markdown(
+        '- Make a scatterplot to represent  minmax_norm_ratings in function of the number of awards won by the book')
+    st.text(" ")
+
+
+# ------------------------------------------------------------------------
 
 st.markdown(
     "If you have any questions, checkout our [documentation](https://dumbledore-on-strive.github.io/) ")
