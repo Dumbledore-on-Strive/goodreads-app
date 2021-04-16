@@ -74,6 +74,9 @@ def main():
         with header:
             st.title('Dumbledore on Strive!')  # site title h1
             st.text(' ')
+            st.header('Books That Should Be Made Into Movies')
+            st.text('Goodreads Project')
+            st.text(' ')
             st.markdown(
                 "Enjoy the journey and you'll see the magic :sparkles:")
             st.text(' ')
@@ -161,14 +164,13 @@ def main():
             #     " we extract data from website with  95 percentage  effciency  ")
 
     elif choice == "Business Analysis":
-        st.subheader("Business Analysis")
+        # st.subheader("Business Analysis")
 
         with conclusion:
             st.title('Time to invest money')
             st.text(' ')
-            st.subheader("94.9% of the books are series")
+            st.subheader("76.7% of the books are series")
             st.text('This can be a great opportunity to release a Netflix series')
-            # st.text('This can be a great opportunity to release a Netflix series')
             st.text(' ')
             st.text(' ')
 
@@ -223,9 +225,17 @@ def main():
             st.text(' ')
             st.text(' ')
 
+            st.text(' ')
+            st.subheader(
+                "76.7% chance of a book with more than 4 avg rating on Goodreads hit IMDB avg rating higher than 7 stars.")
+            st.text(' ')
+            st.text('Another great opportunity to transform books into movies/series')
+            st.text(' ')
+            st.text(' ')
+
             st.header('The Top 5 Best Authors to invest in 2021')
             st.subheader(
-                'Based on average rating')
+                'Based on average rating on Goodreads')
             st.text(' ')
             image = Image.open('imgs/best_authors.jpg')
             st.image(image, caption="")
