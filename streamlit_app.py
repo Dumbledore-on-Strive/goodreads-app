@@ -346,7 +346,9 @@ def main():
 
         st.sidebar.markdown("Which Type of Graph do want?")
         np.select = st.sidebar.selectbox(
-            "Graph type", ["Number of rating and Awards", "The top 15 best author", "Award and Year", "Average Rating Analysis", "The published books by year"], key='1')
+            "Graph type", ["Number of rating and Awards", "The top 15 best author", "Average Rating Analysis", "The published books by year"], key='1')
+        # np.select = st.sidebar.selectbox(
+        #     "Graph type", ["Number of rating and Awards", "The top 15 best author", "Award and Year", "Average Rating Analysis", "The published books by year"], key='1')
         if np.select == "Number of rating and Awards":
             # st.markdown(
             #     '- Create a 2D scatterplot with pages on the x-axis and num_ratings on the y-axis.')
