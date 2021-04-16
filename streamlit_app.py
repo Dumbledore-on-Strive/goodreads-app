@@ -6,8 +6,6 @@ import numpy as np
 from PIL import Image
 import plotly.express as px
 import plotly.figure_factory as ff
-# import statsmodels as sm
-# import matplotlib
 
 
 header = st.beta_container()
@@ -18,18 +16,6 @@ dataset = st.beta_container()
 conclusion = st.beta_container()
 footer = st.beta_container()
 
-# # all pages
-# PAGES = {
-#     "Home": home,
-#     "Team": team,
-#     "Datasets": dataset,
-#     "Movies to Books": movies
-# }
-
-# st.sidebar.title('Navigation')
-# selection = st.sidebar.radio("Go to", list(PAGES.keys()))
-# page = PAGES[selection]
-# page.app()
 
 # set style for seaborn
 sns.set_style('darkgrid')
@@ -282,7 +268,7 @@ def main():
         def group_bar_chart(data):
             st.markdown("")
             st.markdown("")
-            st.subheader("The Published Books by Year ")
+            st.subheader("Books Published by Year ")
             st.markdown("")
             st.markdown("")
             tmp = data.groupby("original_publish_year")[
