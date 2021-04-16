@@ -1,6 +1,6 @@
 # Dumbledore on Strive!
 
-Enjoy the journey and you'll see the magic :sparkles:
+Enjoy the journey and you'll see the magic ✨
 
 ## Check it out live
 
