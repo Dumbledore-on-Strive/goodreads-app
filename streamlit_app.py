@@ -198,7 +198,7 @@ def main():
             st.subheader(
                 'All have more than 4.5 average rating on Goodreads')
             st.markdown(
-                'All these Movies had a gross income above $50M on the first month after release')
+                'All these Movies had a gross income above $25M on the first month after release')
             st.text(' ')
             image = Image.open('imgs/best_movies.jpg')
             st.image(image, caption="")
@@ -227,7 +227,7 @@ def main():
             st.subheader(
                 'Based on average rating')
             st.text(' ')
-            image = Image.open('best_authors.jpg')
+            image = Image.open('imgs/best_authors.jpg')
             st.image(image, caption="")
             st.text(' ')
             st.markdown('* Rainbow Rowell')
