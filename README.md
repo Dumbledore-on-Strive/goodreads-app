@@ -27,4 +27,4 @@ $ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-If you need extra help with Streamlit, got to the [documentation](https://docs.streamlit.io)
+Read more about it [here](https://dumbledore-on-strive.github.io/)
