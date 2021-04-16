@@ -6,8 +6,6 @@ from matplotlib import rcParams
 from PIL import Image
 import seaborn as sns
 import scipy.stats as sts
-import statsmodels as sm
-# import matplotlib
 import plotly.express as px
 import plotly.figure_factory as ff
 
