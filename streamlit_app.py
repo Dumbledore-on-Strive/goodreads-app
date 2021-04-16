@@ -84,7 +84,7 @@ def main():
                 '* **Webscraping:** get the information (data) from the web')
             st.markdown('* **Dataframe:** add the data a spreadsheet file')
             st.markdown(
-                '* **Plot:** create plot and graphs for better visualization')
+                '* **Plot:** create plots and graphs for better visualization')
             st.text(' ')
             image = Image.open('imgs/dumbledore-on-strive.jpeg')
             st.image(image, caption="'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.'")
