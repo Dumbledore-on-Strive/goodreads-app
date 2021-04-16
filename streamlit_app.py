@@ -227,7 +227,7 @@ def main():
 
             st.text(' ')
             st.subheader(
-                "76.7% chance of a book with more than 4 avg rating on Goodreads hit IMDB avg rating higher than 7 stars.")
+                "79.6% chance of a book with more than 4 avg rating on Goodreads hit IMDB avg rating higher than 7 stars.")
             st.text(' ')
             st.text('Another great opportunity to transform books into movies/series')
             st.text(' ')
