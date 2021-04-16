@@ -1,13 +1,13 @@
-import numpy as np
-import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt
-from matplotlib import rcParams
-from PIL import Image
+import pandas as pd
+import matplotlib as plt
 import seaborn as sns
-import scipy.stats as sts
+import numpy as np
+from PIL import Image
 import plotly.express as px
 import plotly.figure_factory as ff
+# import statsmodels as sm
+# import matplotlib
 
 
 header = st.beta_container()
