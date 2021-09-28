@@ -1,4 +1,4 @@
-# Dumbledore on Strive!
+# Data Strive!
 
 Enjoy the journey and you'll see the magic ✨
 
@@ -27,4 +27,4 @@ $ pip install -r requirements.txt
 streamlit run streamlit_app.py
 ```
 
-Read more about it [here](https://dumbledore-on-strive.github.io/)
+Read more about it [here](https://data-strive.github.io/)
