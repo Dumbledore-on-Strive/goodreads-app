@@ -72,13 +72,14 @@ def main():
         # footer = st.beta_container()
         ####################################################
         with header:
-            st.title('Dumbledore on Strive!')  # site title h1
+            st.title('Data Strive!')  # site title h1
             st.text(' ')
             st.header('Books That Should Be Made Into Movies')
             st.text('Goodreads Project')
             st.text(' ')
             st.markdown(
-                "Enjoy the journey and you'll see the magic :sparkles:")
+                "Web scraping and Data Analysis Project")
+            st.text('Navigate on the left menu')
             st.text(' ')
             st.markdown(
                 '* **Webscraping:** get the information (data) from the web')
@@ -86,7 +87,7 @@ def main():
             st.markdown(
                 '* **Plot:** create plots and graphs for better visualization')
             st.text(' ')
-            image = Image.open('imgs/dumbledore-on-strive.jpeg')
+            image = Image.open('imgs/cover.jpeg')
             st.image(image, caption="'It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.'")
             st.text(' ')
             with team:
@@ -272,7 +273,7 @@ def main():
         def scatter_2D_plot(data):
             st.markdown("")
             st.markdown("")
-            st.subheader("Comparison between Number of rating and Awards")
+            st.subheader("Comparison between Number of pages and ratings")
             st.markdown("")
             st.markdown("")
             size_b = data['award']**2*12
